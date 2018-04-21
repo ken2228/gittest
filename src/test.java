@@ -25,15 +25,20 @@ public class test {
 	       
 	     }
 
-	     String expResult = "FILE_NAME\n";
+	     String expResult = "oor\n";
 	     // call sendCommand for each command and the output 
 	     //(without prompts) is returned
 	     String result = instance.sendCommand(command);
-	     // close only after all commands are sent
-	     instance.close();
+
 	     System.out.println("expected: " + expResult);
 	     System.out.println("Result: "+ result);
 	     
+	     result = instance.sendCommand("ls -al");
+	     
+	     //System.out.println("ls -al returns: " + result);
+	     
+	     // close only after all commands are sent
+	     instance.close();
 	}
 
 }
