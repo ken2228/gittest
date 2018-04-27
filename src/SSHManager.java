@@ -23,6 +23,8 @@
   private String strPassword;
   private Session sesConnection;
   private int intTimeOut;
+  
+
 
   private void doCommonConstructorActions(String userName, 
        String password, String connectionIP, String knownHostsFileName)
@@ -116,7 +118,7 @@
   public String sendCommand(String command)
   {
      StringBuilder outputBuffer = new StringBuilder();
-
+     
      try
      {
         Channel channel = sesConnection.openChannel("exec");

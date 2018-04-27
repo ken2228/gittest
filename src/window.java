@@ -11,7 +11,7 @@ import javax.swing.JTextField;
 public class window {
 
 	private JFrame frame;
-	SSHManager instance = new SSHManager("pi","raspberry", "192.168.137.2", "");
+	SSHManager instance = new SSHManager("pi","raspberry", "192.168.178.122", "");
 	private JTextField textLogin;
 	private JTextField textPass;
 	private JTextField textIP;
@@ -69,7 +69,7 @@ public class window {
 		btnSaveSettings.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				AppPreferences prefs = new AppPreferences();
-				prefs.saveSettings("pi", "raspberry", "192.168.137.2");
+				prefs.saveSettings(textLogin.getText(), textPass.getText(), textIP.getText());
 			}
 		});
 		btnSaveSettings.setBounds(322, 336, 89, 23);
@@ -125,5 +125,6 @@ public class window {
 		});
 		btnLoadSettings.setBounds(449, 336, 89, 23);
 		frame.getContentPane().add(btnLoadSettings);
+		btnLoadSettings.doClick();
 	}
 }
