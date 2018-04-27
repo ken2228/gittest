@@ -7,14 +7,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.JTree;
 
 public class window {
 
 	private JFrame frame;
-	SSHManager instance = new SSHManager("pi","raspberry", "192.168.178.122", "");
+	//SSHManager instance = new SSHManager("pi","raspberry", "192.168.178.122", "");
 	private JTextField textLogin;
 	private JTextField textPass;
 	private JTextField textIP;
+	CommandBuilder CB;
 
 	/**
 	 * Launch the application.
@@ -37,8 +39,8 @@ public class window {
 	 */
 	public window() {
 		initialize();
-		
-		instance.connect();
+		CB = new CommandBuilder(textLogin.getText(), textPass.getText(), textIP.getText());
+		//instance.connect();
 	}
 
 	/**
@@ -58,7 +60,7 @@ public class window {
 		JButton btnNewButton = new JButton("Dir");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String texts = instance.sendCommand("ls -al");
+				String texts = CB.listdirectory("");
 				textPane.setText(texts);
 			}
 		});

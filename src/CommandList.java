@@ -1,9 +1,11 @@
 
 public enum CommandList {
-	
+
 	LS("ls -al"),
 	PWD("pwd"),
-	CAT("cat");
+	CAT("cat"),
+	ECHO("echo "),
+	OUT("out");
 	
 	private String command;
 	
